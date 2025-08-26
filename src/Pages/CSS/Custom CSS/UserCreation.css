@@ -1,0 +1,114 @@
+.multi-select-dropdown {
+  position: relative;
+  width: 20.5rem;
+}
+
+.multi-select-dropdown-accounts{
+  position: relative;
+  /* min-width: 20.5rem; */
+  
+}
+
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag {
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  padding: 3px 8px;
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.remove-tag {
+  margin-left: 6px;
+  color: #666;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.dropdown-header {
+  border: 1px solid #ccc;
+  padding: 0.6rem 0.72rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  text-transform: capitalize;
+  gap: 5px;
+}
+
+.dropdown-header.disabled {
+  background-color: rgba(90, 90, 90, 0.15); /* transparent grey */
+  cursor: not-allowed !important;
+  pointer-events: none; /* optional: disables interaction */
+  opacity: 0.7;
+  border-radius: 4px;
+}
+
+
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  background-color: white;
+  max-height: 198px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown-item input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.custom-checkbox {
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 2px solid #666;
+  background-color: #fff;
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.dropdown-item input[type="checkbox"]:checked + .custom-checkbox {
+   background-color: #2196F3; 
+  border-color: #2196F3;
+}
+
+.usercreation-button-div{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+
+.selected-tags::-webkit-scrollbar {
+  height: 4px; /* Minimal height */
+}
+
+.selected-tags::-webkit-scrollbar-thumb {
+  background: transparent; /* Or use a subtle color */
+}
+
+.selected-tags::-webkit-scrollbar-track {
+  background: transparent;
+}

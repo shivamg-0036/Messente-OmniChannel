@@ -1,0 +1,36 @@
+.ul-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.img-class {
+    width: 9rem;
+    height: 8rem;
+    margin-left: 3rem;
+  margin-top: 0.8rem;
+}
+
+@media (max-width:769px) {
+    .navbar-wrapper {
+        height: 4.3rem;
+        margin-top: -3.95rem;
+        padding-top: 0;
+    }
+
+    .img-class{
+        margin-top: 0;
+            margin-left: 0rem;
+    }
+
+    .non-mobile{
+        display: none;
+    }
+}
+
+ @media (max-width: 769px) {
+            .dropdown-toggle::after {
+              display: none !important;
+            }
+
+          }

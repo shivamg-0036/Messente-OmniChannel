@@ -1,0 +1,23 @@
+
+
+.button-div {
+    display: flex;
+    align-items: center;
+    height: auto;
+    flex: 0 0 100%;
+    max-width: 100%;
+    justify-content: flex-end;
+    position: fixed;
+    margin-bottom: 1rem;
+    right: 3%;
+    padding-bottom: 1rem;
+    color: #ecbb57;
+}
+
+.button-div.showdepart{
+    bottom: 0%;
+}
+
+.button-div.hidedepart{
+    top: 87.2%;
+}

@@ -1,0 +1,514 @@
+.card-body-div {
+    flex: 0 0 100%;
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+
+/* .card-left {
+    width: 100%;
+    overflow-y: auto;
+    height: 40rem;
+} */
+
+.card-left.sidebarclose {
+    width: 100%;
+}
+
+.card-right {
+    width: 19.8rem;
+    flex-shrink: 0;
+    height: 100%;
+    padding: 0.5rem 0;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 1200px) {
+    .card-right {
+        display: none;
+    }
+
+    .card-left {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.div-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 350px;
+
+}
+
+.custom-file {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    margin-bottom: 0;
+}
+
+.custom-file-input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    margin: 0;
+    opacity: 0;
+}
+
+.custom-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+.file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 1rem;
+}
+
+.file-input-wrapper i {
+    font-size: 1.4rem;
+}
+
+.file-input-wrapper input[type="file"] {
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload-div {
+    border: 0.2rem dotted rgb(10, 10, 10);
+    width: 98.3%;
+    height: 100%;
+    margin-top: 0.3rem;
+}
+
+.span-div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    font-weight: 500;
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+}
+
+.file-icon-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 0.5rem;
+}
+
+
+.file-selected-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.card-service-div {
+    height: 1rem;
+    width: 50%;
+    margin-left: 1rem;
+}
+
+
+.img-service-div{
+    border: 3px solid #07b6da;
+    padding: 0.35rem 0.65rem;
+  
+    border-radius: 15%;
+    box-shadow:   0 2px 2px #8b8a8a ;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    margin-top: 0.3rem;
+    justify-content: center;
+    
+}
+
+.img-service-div-1{
+    border: 3px solid #25D366;
+    padding: -0.4rem 3rem;
+    padding-left: 0.24rem;
+  padding-right: 0.25rem;
+    border-radius: 15%;
+    box-shadow:   0 2px 2px #8b8a8a ;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    margin-top: 0.3rem;
+    justify-content: center;
+  
+}
+
+.img-service-div-2{
+    border: 3px solid rgb(238, 62, 62);
+    padding: -0.4rem 3rem;
+    padding-left: 0.24rem;
+  padding-right: 0.25rem;
+    border-radius: 15%;
+    box-shadow:   0 2px 2px #8b8a8a ;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    margin-top: 0.3rem;
+    justify-content: center;
+  
+}
+
+.img-service-div-3{
+    border: 3px solid #FFD43B;
+   padding-top: 0.5rem;
+   padding-bottom: 0.5rem;
+    padding-left: 0.9rem;
+  padding-right: 0.95rem;
+    border-radius: 15%;
+    box-shadow:   0 2px 2px #8b8a8a ;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    margin-top: 0.3rem;
+    justify-content: center;
+  
+}
+
+/* Outer page container */
+.campaign-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Fixed top header */
+.campaign-header {
+    position: fixed;
+    top: 11.65%;
+    background-color: #fff;
+    display: flex;
+    
+    z-index: 10000;
+    box-shadow: 0 0px 12px rgba(8, 70, 243, 0.4);
+    padding: 0rem 1rem;
+    height: 3rem;
+    transition: all 0.4s ease;
+}
+
+/* Fixed top header */
+.campaign-header-2 {
+    position: fixed;
+    top: 21%;
+    background-color: #fff;
+    display: flex;
+    padding-left: 0;
+    z-index: 10000;
+    box-shadow: 0 0px 12px rgba(8, 70, 243, 0.4);
+    height: 3rem;
+    transition: all 0.4s ease;
+}
+
+.campaign-header-2 .image-divs{
+      height: 100%;
+  width: 100%;
+  display: flex;
+  column-gap: 0.5rem;
+  padding-left: 0;
+  position: relative; /* for pseudo-element positioning */
+}
+
+
+.campaign-header .image-divs {
+  height: 100%;
+  width: 60%;
+  margin-left: 2rem;
+  display: flex;
+  column-gap: 0.7rem;
+  padding-left: 2rem;
+  position: relative; /* for pseudo-element positioning */
+}
+
+/* Vertical line with top and bottom gap */
+.campaign-header .image-divs::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 15%; /* gap from top */
+  bottom: 15%; /* gap from bottom */
+  width: 2px;
+  background-color: rgb(181, 183, 185);
+}
+
+.img-text-div{
+height: 100%;
+display: flex;
+align-items: center;
+font-size: 0.95rem;
+font-weight: 700;
+margin-right: 1rem;
+}
+
+.img-div-1{
+    width: 3rem;
+    height: calc(100% - 0.5rem);
+    border: 2px solid rgba(8, 70, 243, 0.4);
+    box-shadow: inset 0 0 4px rgba(8, 70, 243, 0.4); /* inner shadow */
+  background: rgba(255, 255, 255, 0.1); /* optional light glass effect */
+  backdrop-filter: blur(6px); /* optional for glassmorphism */
+    border-radius: 20%;
+    margin: 0.3rem 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-div-2 {
+  width: 3rem;
+  height: calc(100% - 0.5rem);
+  border: 2px solid rgb(238, 62, 62);
+  border-radius: 20%;
+  margin: 0.3rem 0rem;
+  box-shadow: inset 0 0 4px rgba(238, 62, 62, 0.6); /* inner shadow */
+  background: rgba(255, 255, 255, 0.1); /* optional light glass effect */
+  backdrop-filter: blur(6px); /* optional for glassmorphism */
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.img-div-3{
+    width: 3rem;
+    height: calc(100% - 0.5rem);
+    border: 2px solid #2af173;
+        box-shadow: inset 0 0 4px #2af173; /* inner shadow */
+  background: rgba(255, 255, 255, 0.1); /* optional light glass effect */
+  backdrop-filter: blur(6px); /* optional for glassmorphism */
+    border-radius: 20%;
+    margin: 0.3rem 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-div-4{
+    width: 3rem;
+    height: calc(100% - 0.5rem);
+    border: 2px solid #FFD43B;
+        box-shadow: inset 0 0 4px #FFD43B; /* inner shadow */
+  background: rgba(255, 255, 255, 0.1); /* optional light glass effect */
+  backdrop-filter: blur(6px); /* optional for glassmorphism */
+    border-radius: 20%;
+    margin: 0.3rem 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-div-5{
+    width: 3rem;
+    height: calc(100% - 0.5rem);
+    border: 2px solid #ef4ff5;
+        box-shadow: inset 0 0 4px #ef4ff5; /* inner shadow */
+  background: rgba(255, 255, 255, 0.1); /* optional light glass effect */
+  backdrop-filter: blur(6px); /* optional for glassmorphism */
+    border-radius: 20%;
+    margin: 0.3rem 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main content below header */
+.campaign-content {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    margin-top: 3.9rem; /* leave space for header */
+    overflow: hidden;
+}
+
+/* .campaign-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  min-height: 0; /* Required to allow inner scrolling 
+} */
+
+
+/* Scrollable left wrapper */
+/* .left-scroll-container {
+    flex: 1;
+    height: 100%;
+    background-color: #fff;
+  
+} */
+
+.left-scroll-container {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #fff;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Scrollable left card */
+.card-left {
+    width: 100%;
+    box-sizing: border-box;  
+}
+
+/* Right fixed card */
+.card-right {
+    width: 19.8rem;
+    flex-shrink: 0;
+    padding: 0.5rem 1rem;
+    background: #f9f9f9;
+    height: 100%;
+    box-shadow: -1px 0 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sidebar close effect */
+.card-left.sidebarclose {
+    width: 100%;
+}
+
+/* Responsive: hide right card on small screens */
+@media(max-width: 1200px) {
+    .card-right {
+        display: none;
+    }
+
+    .card-left {
+        width: 100%;
+    }
+
+   
+    
+}
+
+
+
+@media (max-width: 350px) {
+    .span-div {
+        font-size: 0.8rem;
+    }
+}
+
+
+
+
+.img-service-div,
+.img-service-div-1,
+.img-service-div-2,
+.img-service-div-3 {
+  background: rgba(255, 255, 255, 0.2); /* subtle background for white theme */
+  border-radius: 1.2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* default soft shadow */
+}
+
+/* Highlighted (active) style with color shadow */
+.active-service {
+  box-shadow: 0 0 18px 4px rgba(0, 123, 255, 0.5); /* blue glow shadow */
+  transform: scale(1.05);
+}
+
+
+
+.header-image-div{
+    height: 1rem;
+    border: 3px solid red;
+}
+
+@media (max-width:1040px)
+{
+    .image-divs{
+        margin-left: 1rem;
+        padding-left: 1rem;
+        column-gap: 0.5rem;
+    } 
+
+}
+
+@media (max-width:1006px)
+{
+    .cho-class{
+        display: none;
+    }
+}
+
+@media (min-width:653px)
+{
+    .campaign-header-2{
+        display: none;
+    }
+}
+
+@media (max-width:652px)
+{
+   .campaign-header .image-divs{
+    display: none;
+    }
+
+    .campaign-content{
+        margin-top: 7.7rem;
+    }
+}
+
+@media (max-width:407px)
+{
+    .cho-2-class{
+        display: none;
+    }
+
+    .campaign-header-2 .img-div-1
+    ,.campaign-header-2 .img-div-2,
+    .campaign-header-2 .img-div-3
+    ,.campaign-header-2 .img-div-4,
+    .campaign-header-2 .img-div-5{
+        width: 2.58rem;
+    }
+ 
+}
+

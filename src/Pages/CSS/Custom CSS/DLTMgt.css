@@ -1,0 +1,215 @@
+.dlt-container{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.dlt-row{
+    max-width: 100%;
+    height: auto;
+
+    display: flex;
+    flex: 0 0 100%;
+   justify-content: space-between;
+    padding:0.5rem 0.8rem;
+    flex-wrap: wrap;
+    padding-top: 0.2rem;
+}
+
+.dlt-card{
+    width: 31%;
+}
+
+.dlt-span{
+    font-size: 1rem;
+}
+
+.dlt-temp-card{
+    display: flex;
+    align-items: center;
+    flex: 0 0 100%;
+    max-width: 100%;
+    background-color: #fff;
+    height: auto;
+    color: rgb(163, 162, 162);
+    flex-wrap: wrap;
+}
+
+/* Fullscreen container
+.dlt-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 1000000;
+    overflow-y: auto;
+   
+}
+
+
+Expanded card styling
+.dlt-temp-card.expanded {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    overflow: auto;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    padding: 1rem;
+} */
+
+/* Add transition to container */
+.dlt-container {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Fullscreen container (already defined) */
+.dlt-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f3f3f3;
+    z-index: 1000000;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+/* Add transition and animation to the card */
+.dlt-temp-card {
+    transition: all 0.2s ease-in-out;
+    transform-origin: top center;
+}
+
+/* Expanded card styling */
+.dlt-temp-card.expanded {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    overflow: auto;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    padding: 1rem;
+    transform: scale(1.0); /* Subtle zoom-in effect */
+}
+
+
+
+/* Wrapper handles margin transitions */
+.collapsible-wrapper {
+  transition: margin 0.5s ease;
+  margin-top: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+/* When collapsed, remove margin */
+.collapsible-wrapper.collapsed {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Container handles height transition */
+.collapsible-container {
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  max-height: 100rem; /* or suitable value */
+}
+
+/* Collapse height only */
+.collapsible-container.collapsed {
+  max-height: 0;
+}
+
+
+
+
+.table-dlt-div{
+    margin-top: 2.5rem;
+}
+
+
+
+
+
+.fullscreen-overlay {
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 2000;
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.expanded-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-icon {
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.overlay-body {
+    flex: 1;
+    margin-top: 1.5rem;
+}
+
+.overlay-filters {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.dlt-card-row{
+    display: flex;
+    flex: 0 0 100%;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: flex-start; /* 👈 important */
+    /* height: 10rem;
+    background-color: #fff; */
+    margin-top: 1.5rem;
+}
+
+.div-small-card-1,.div-small-card-2{
+    
+    flex: 0 0 49.4%;
+    max-width: 49.4%;
+   height: auto;
+   
+    background-color: #fff; 
+}
+
+.div-small-card-1.expanded {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+
+.div-small-card-2.expanded {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+
+
+@media (max-width:550px)
+{
+    .dlt-card{
+        width: 100%;
+    }
+}

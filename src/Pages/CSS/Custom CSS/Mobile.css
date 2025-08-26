@@ -1,0 +1,358 @@
+.mobile-div {
+    width: 17rem;
+    height: 34rem;
+    border: 6px solid rgb(210, 210, 211);
+    border-radius: 32px;
+    position: relative;
+  
+    /* Needed for absolute positioning inside */
+    /* background-color: #f7f7f7; */
+    background-color: rgba(255, 255, 255, 0.774);
+
+}
+
+.sender-div {
+    width: 97%;
+    height: 3rem;
+    /* background-color: #0dcaf0; */
+    position: absolute;
+    top: 1.5%;
+    left: 1.53%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+
+}
+
+.sms-active {
+  background-color: #0dcaf0; /* Blue tint */
+}
+
+.rcs-active {
+  background-color: rgb(238, 62, 62); /* Lighter blue */
+
+}
+
+.waba-active {
+  background-color:#2af173; /* WhatsApp green tint */
+}
+
+.voice-active{
+     background-color:#FFD43B;
+}
+
+.email-active{
+    background-color: #ef4ff5;
+}
+
+.msg-div {
+    width: 97%;
+    max-height: 27rem;
+    min-height: 3rem;
+    position: absolute;
+    top: 9.5%;
+    left: 1.53%;
+    flex-wrap: wrap;
+    display: flex;
+    padding: 0.6rem 0.55rem;
+    overflow-y: auto;
+    /* Hide scrollbar for WebKit (Chrome, Safari) */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.imessage::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.mobile-border-div {
+    width: 100%;
+    height: 100%;
+    border: 4px solid #000;
+    border-radius: 28px;
+    border-bottom: 7px solid #000;
+    border-top: 8px solid #000;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+/* Volume Button */
+.vol-div {
+    position: absolute;
+    left: -0.6rem;
+    /* Pushes it just outside the left edge */
+    top: 30%;
+    width: 0.2rem;
+    /* Slim like a real volume button */
+    height: 2.5rem;
+    background-color: #807e7e;
+
+    border-top-left-radius: 11rem;
+    border-bottom-left-radius: 11rem;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.vol-down-div {
+    position: absolute;
+    left: -0.6rem;
+    /* Pushes it just outside the left edge */
+    top: 39%;
+    width: 0.2rem;
+    /* Slim like a real volume button */
+    height: 2.5rem;
+    background-color: #807e7e;
+    border-top-left-radius: 11rem;
+    border-bottom-left-radius: 11rem;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.power-div {
+    position: absolute;
+    right: -0.3rem;
+    /* Pushes it just outside the left edge */
+    top: 30%;
+    width: 0.25rem;
+    /* Slim like a real volume button */
+    height: 2.5rem;
+    background-color: #807e7e;
+    border-top-right-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.cam-div {
+    position: absolute;
+    top: 4%;
+    width: 1rem;
+    /* Slim like a real volume button */
+    height: 1rem;
+    background-color: #000;
+    border-radius: 50px;
+    left: 8%;
+}
+
+.light-div {
+    position: absolute;
+    top: 4.9%;
+    width: 0.5rem;
+    /* Slim like a real volume button */
+    height: 0.5rem;
+    background-color: #000;
+    border-radius: 50px;
+    left: 17%;
+}
+
+.imessage {
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: 100%;
+}
+
+.submit-button{
+    width: 96.5%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 5%;
+    left: 1.7%;
+
+}
+
+
+
+.imessage p {
+    border-radius: 1.15rem;
+    line-height: 1.25;
+    max-width: 100%;
+    padding: 0.5rem .875rem;
+    position: relative;
+    word-wrap: break-word;
+font-size: 0.92rem;
+}
+
+.imessage p::before,
+.imessage p::after {
+    bottom: -0.1rem;
+    content: "";
+    height: 1rem;
+    position: absolute;
+}
+
+p.from-me {
+  align-self: flex-end;
+  background-color: #0dcaf0; /* default (maybe SMS) */
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.8rem;
+  position: relative;
+  max-width: 100%;
+}
+
+p.from-me::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -0.35rem;
+  border-right: 1rem solid #0dcaf0;
+  
+  border-bottom-left-radius: 0.8rem 0.7rem;
+  transform: translate(0, -0.1rem);
+}
+
+/* RCS override */
+p.from-me.rcs-msg {
+  background-color: rgb(238, 62, 62);;
+}
+
+p.from-me.rcs-msg::before {
+  border-right: 1rem solid rgb(238, 62, 62);;
+}
+
+/* WABA override */
+p.from-me.waba-msg {
+  background-color: #2af173;
+}
+
+p.from-me.waba-msg::before {
+  border-right: 1rem solid #2af173;
+}
+
+p.from-me.email-msg {
+  background-color: #ef4ff5;
+}
+
+p.from-me.email-msg::before {
+  border-right: 1rem solid #ef4ff5;
+}
+
+p.from-me.voice-msg {
+  background-color: #FFD43B;
+}
+
+p.from-me.voice-msg::before {
+  border-right: 1rem solid #FFD43B;
+}
+
+
+p.from-me::after {
+    background-color: #fff;
+    border-bottom-left-radius: 0.5rem;
+    right: -40px;
+    transform: translate(-30px, -2px);
+    width: 10px;
+}
+
+p[class^="from-"] {
+    margin: 0.2rem 0;
+    width: fit-content;
+    min-width: 3rem;
+    min-height: 1.8rem;
+}
+
+p.from-me~p.from-me {
+    margin: 0.25rem 0 0;
+}
+
+p.from-me~p.from-me:not(:last-child) {
+    margin: 0.25rem 0 0;
+}
+
+p.from-me~p.from-me:last-child {
+    margin-bottom: 0.5rem;
+}
+
+p.from-them {
+    align-items: flex-start;
+    background-color: #e5e5ea;
+    color: #000;
+}
+
+p.from-them:before {
+    border-bottom-right-radius: 0.8rem 0.7rem;
+    border-left: 1rem solid #e5e5ea;
+    left: -0.35rem;
+    transform: translate(0, -0.1rem);
+}
+
+
+
+
+.no-tail::before {
+    display: none;
+}
+
+.margin-b_none {
+    margin-bottom: 0 !important;
+}
+
+.margin-b_one {
+    margin-bottom: 1rem !important;
+}
+
+.diagonal-line {
+  width: 1px;               /* Line thickness */
+  height: 1.3rem;            /* Line length */
+  background-color: black;  /* Line color */
+  transform: rotate(33deg); /* Angle in degrees */
+  transform-origin: top left;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  position: absolute;
+  top: 10%;
+  right: 2%;
+}
+
+
+.show-diagonal {
+  opacity: 1;
+}
+
+th,
+td {
+  transition: left 0.3s ease;
+}
+
+th.sticky,
+td.sticky {
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.table-dropdown{
+  width: auto;
+  height: auto;
+background-color: #cfcdcd;
+  position: absolute;
+  top: 100%;
+  right: 12%;
+}
+
+
+.select-div{
+  width: 100%;
+  height: auto;
+
+}
+
+
+
+.no-border-input {
+  font-size: 0.85rem;
+  padding: 0.1rem 0 0.1rem 0.2rem;
+  border: 1px solid transparent;
+  outline: none;
+  box-sizing: border-box;
+  color: gray;
+  margin: 0.3rem;
+ 
+}
