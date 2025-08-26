@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Messente-OmniChannel/static/css/main.1af57134.css",
+    "main.js": "/Messente-OmniChannel/static/js/main.0cfe25c0.js",
+    "index.html": "/Messente-OmniChannel/index.html",
+    "main.1af57134.css.map": "/Messente-OmniChannel/static/css/main.1af57134.css.map",
+    "main.0cfe25c0.js.map": "/Messente-OmniChannel/static/js/main.0cfe25c0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1af57134.css",
+    "static/js/main.0cfe25c0.js"
+  ]
+}
