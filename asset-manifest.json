@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Messente-OmniChannel/static/css/main.1af57134.css",
-    "main.js": "/Messente-OmniChannel/static/js/main.045661d2.js",
+    "main.js": "/Messente-OmniChannel/static/js/main.b1cd5be8.js",
     "index.html": "/Messente-OmniChannel/index.html",
     "main.1af57134.css.map": "/Messente-OmniChannel/static/css/main.1af57134.css.map",
-    "main.045661d2.js.map": "/Messente-OmniChannel/static/js/main.045661d2.js.map"
+    "main.b1cd5be8.js.map": "/Messente-OmniChannel/static/js/main.b1cd5be8.js.map"
   },
   "entrypoints": [
     "static/css/main.1af57134.css",
-    "static/js/main.045661d2.js"
+    "static/js/main.b1cd5be8.js"
   ]
 }
