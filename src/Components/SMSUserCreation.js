@@ -1,24 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useRef } from 'react';
 import '../Pages/CSS/Custom CSS/UserCreation.css'
 import SelectBox from './Form-Elements/SelectBox';
 import InputBox from './Form-Elements/InputBox';
 import Textarea from './Form-Elements/Textarea';
+import { TimePicker } from "antd";
+import dayjs from "dayjs";
 
 export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOpen, usertype }) {
     const [enterprise, setenterprise] = useState("");
     const [department, setdepartment] = useState("");
+    const [password,setpassword] = useState("");
     const [billingon, setbillingon] = useState("");
+    const [billinglogic, setbillinglogic] = useState("");
     const [sendertype, setsendertype] = useState("");
     const [priority, setpriority] = useState("");
     const [traffictype, settraffictype] = useState("");
     const [accmanager, setaccmanager] = useState("");
     const [isotp, setisotp] = useState("");
     const [billingtype, setbillingtype] = useState("");
+    const [billingcycle, setbillingcycle] = useState("");
     const [smsservice, setsmsservice] = useState("");
     const [smppcharset, setsmppcharset] = useState("");
     const [tx, settx] = useState("");
     const [rx, setrx] = useState("");
     const [trx, settrx] = useState("");
+     const [DateInputwidth, setDateInputwidth] = useState("");
     const [tm1_id, settm1_id] = useState("");
     const [tm2_id, settm2_id] = useState("");
     const [td_id, settd_id] = useState("");
@@ -38,7 +44,69 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
     const [webwhitelisetip, setwebwhitelisetip] = useState("");
     const [smppwhitelisetip, setsmppwhitelisetip] = useState("");
     const [dlrbody, setdlrbody] = useState("");
+    const [isretry,setisretry] = useState("");
+    const [noOfRetry,setnoOfRetry] = useState("");
+    const [callbacktps,setcallbacktps] = useState("");
+    const [iscallbackscheduletime,setiscallbackscheduletime] = useState("");
+    const [callbackstarttime,setcallbackstarttime] = useState("");
+     const [callbackstoptime,setcallbackstoptime] = useState("");
+     const [retryaftersec,setretryaftersec] = useState("");
     const [inputwidth, setInputwidth] = useState("");
+
+     useEffect(() => {
+        const updateWidth = () => {
+            const screenWidth = window.innerWidth;
+            if (screenWidth <= 475) {
+                setDateInputwidth("100%");
+            }
+
+            else if (screenWidth <= 980 && screenWidth > 900) {
+              
+                setDateInputwidth("30%");
+             
+            }
+            else if (screenWidth <= 900) {
+              
+                setDateInputwidth("49%");
+                
+            }
+            else {
+                
+                setDateInputwidth("23%");
+               
+            }
+        };
+
+        updateWidth(); // Initial check
+        window.addEventListener("resize", updateWidth);
+        return () => window.removeEventListener("resize", updateWidth);
+    }, []);
+
+    
+const { RangePicker } = TimePicker;
+const timeWrapperRef = useRef(null);
+  const [timeRange, setTimeRange] = useState([]);
+
+  
+
+   const [value, setValue] = useState([]);
+  const pickerRef = useRef(null);
+
+  const handleChange = (val) => {
+    setValue(val);
+  };
+
+  const handleSelect = (val) => {
+    // When first time is picked, automatically move to end time field
+    if (val && val.length === 1 && pickerRef.current) {
+      const panel = pickerRef.current.querySelector(
+        ".ant-picker-range-separator"
+      );
+      if (panel) panel.click(); // simulate click on separator to switch focus
+    }
+  };
+
+
 
     useEffect(() => {
         const updateWidth = () => {
@@ -63,7 +131,7 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
         return () => window.removeEventListener("resize", updateWidth);
     }, []);
 
-    const resetAccountFunction = () =>{
+    const resetAccountFunction = () => {
         setsmppcharset("");
         settx("");
         setrx("");
@@ -83,10 +151,10 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
         setwebisipcheck("");
         setwebtps("");
         setwebwhitelisetip("");
-      
+
     };
 
-    const resetUserTypeFunction = () =>{
+    const resetUserTypeFunction = () => {
         setaccounttype("");
         setenterprise("");
         setdepartment("");
@@ -102,13 +170,13 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
         settm2_id("");
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         resetAccountFunction();
-    },[accounttype])
+    }, [accounttype])
 
-    useEffect(()=>{
+    useEffect(() => {
         resetUserTypeFunction();
-    },[usertype])
+    }, [usertype])
 
 
     return (
@@ -167,7 +235,36 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
                     sidebarOpen={sidebarOpen}
                 />)}
 
-                <SelectBox label="Credit Deduction On"
+                 <InputBox
+                    label="Password"
+                    type="password"
+                    placeholder="Password will be Shared on Email"
+                    maxLength={31}
+                    isreq={false}
+                    widthPercent="23%"
+                    widthPercent950="32%"
+                    widthPercent900="49%"
+                    value={password}
+                    onChange={(e) => setpassword(e.target.value)}
+                    sidebarOpen={sidebarOpen}
+                    disable={true}
+                />
+
+                <SelectBox label="Credit Deduction Logic"
+                    options={[
+                        { label: 'Wallet', value: 'wallet' },
+                        { label: 'Credit', value: 'Credit' }
+                    ]}
+                    value={billinglogic}
+                    onChange={(e) => setbillinglogic(e.target.value)}
+                    isreq={false}
+                    placeholder="Select Credit Deduction Logic"
+                    maxLength={25}
+                    widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
+                    sidebarOpen={sidebarOpen}
+                />
+
+                {/* <SelectBox label="Credit Deduction On"
                     options={[
                         { label: 'Submission', value: 'Submission' },
                         { label: 'Delivery', value: 'Delivery' }
@@ -179,7 +276,7 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
                     maxLength={25}
                     widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
                     sidebarOpen={sidebarOpen}
-                />
+                /> */}
 
                 {usertype === "User" && <>
                     <SelectBox label="Sender Type"
@@ -198,9 +295,11 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
 
                     <SelectBox label="Priority"
                         options={[
-                            { label: 'High', value: 'High' },
-                            { label: 'Medium', value: 'Medium' },
-                            { label: 'Low', value: 'Low' }
+                            { label: 'Critical', value: '0' },
+                            { label: 'High', value: '1' },
+                            { label: 'Medium', value: '2' },
+                            { label: 'Average', value: '3' },
+                            { label: 'Low', value: '4' }
                         ]}
                         value={priority}
                         onChange={(e) => setpriority(e.target.value)}
@@ -214,7 +313,7 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
 
 
 
-                <SelectBox label="Auth OTP Required"
+                {/* <SelectBox label="Auth OTP Required"
                     options={[
                         { label: 'Yes', value: 'Yes' },
                         { label: 'No', value: 'No' }
@@ -226,7 +325,7 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
                     maxLength={10}
                     widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
                     sidebarOpen={sidebarOpen}
-                />
+                /> */}
 
                 <SelectBox label="SMS Service"
                     options={[
@@ -347,12 +446,30 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
                     sidebarOpen={sidebarOpen}
                 />
 
+                <SelectBox
+                    label="Billing Cycle"
+                    options={[
+                        { label: '30 Days', value: '30' },
+                        { label: '45 Days', value: '45' },
+                        { label: '60 Days', value: '60' }
+                    ]}
+                    value={billingcycle}
+                    onChange={(e) => setbillingcycle(e.target.value)}
+                    isreq={false}
+                    placeholder="Select Billing Cycle"
+                    maxLength={25}
+                    widthPercent="23%"
+                    widthPercent950="32%" widthPercent900="49%"
+                    sidebarOpen={sidebarOpen}
+                />
+
+                
+
+
                 <div style={{ width: inputwidth }}></div>
-                <div style={{ width: inputwidth }}></div>
+                 <div style={{ width: inputwidth }}></div>
 
-
-
-
+               
             </div>
 
             {usertype === "User" && accounttype === "SMPP" && <>
@@ -508,19 +625,19 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
                             boxSizing: "border-box",
                             paddingBottom: "0.2rem"
                         }}>
-                             <InputBox
-                                label="TPS"
-                                type="text"
-                                placeholder="Enter TPS"
-                                maxLength={19}
-                                isreq={false}
-                                 widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
-                                value={webtps}
-                                onChange={(e) => setwebtps(e.target.value)}
-                                sidebarOpen={sidebarOpen}
-                            />
+                        <InputBox
+                            label="TPS"
+                            type="text"
+                            placeholder="Enter TPS"
+                            maxLength={19}
+                            isreq={false}
+                            widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
+                            value={webtps}
+                            onChange={(e) => setwebtps(e.target.value)}
+                            sidebarOpen={sidebarOpen}
+                        />
 
-                            <SelectBox label="Web Default Route"
+                        <SelectBox label="Web Default Route"
                             options={[
                                 { label: 'Option 1', value: 'Option 1' },
                                 { label: 'Option 2', value: 'Option 2' }
@@ -549,7 +666,7 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
                             sidebarOpen={sidebarOpen}
                         />
 
-                        <div style={{width:inputwidth}}></div>
+                        <div style={{ width: inputwidth }}></div>
                         <Textarea
                             label="Whiteliset IPs"
                             placeholder="Whitelist IPs"
@@ -581,7 +698,7 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
                             boxSizing: "border-box",
                             paddingBottom: "0.2rem"
                         }}>
-                            <SelectBox
+                        <SelectBox
                             label="DLR URL Method Type"
                             options={[
                                 { label: 'Get', value: 'Get' },
@@ -592,7 +709,7 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
                             isreq={false}
                             placeholder="Select URL Type"
                             maxLength={5}
-                             widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
+                            widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
                             sidebarOpen={sidebarOpen}
                         />
 
@@ -606,23 +723,23 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
                             isreq={false}
                             placeholder=""
                             maxLength={7}
-                             widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
+                            widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
                             sidebarOpen={sidebarOpen}
                         />
 
-                         <InputBox
-                                label="TPS"
-                                type="text"
-                                placeholder="Enter TPS"
-                                maxLength={19}
-                                isreq={false}
-                                 widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
-                                value={apitps}
-                                onChange={(e) => setapitps(e.target.value)}
-                                sidebarOpen={sidebarOpen}
-                            />
+                        <InputBox
+                            label="TPS"
+                            type="text"
+                            placeholder="Enter TPS"
+                            maxLength={19}
+                            isreq={false}
+                            widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
+                            value={apitps}
+                            onChange={(e) => setapitps(e.target.value)}
+                            sidebarOpen={sidebarOpen}
+                        />
 
-                             <SelectBox
+                        <SelectBox
                             label="Is IP To Check"
                             options={[
                                 { label: 'Yes', value: 'Yes' },
@@ -636,6 +753,126 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
                             widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
                             sidebarOpen={sidebarOpen}
                         />
+
+                        
+                        <InputBox
+                            label="Callback TPS"
+                            type="text"
+                            placeholder="Enter Callback TPS"
+                            maxLength={19}
+                            isreq={false}
+                            widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
+                            value={callbacktps}
+                            onChange={(e) => setcallbacktps(e.target.value)}
+                            sidebarOpen={sidebarOpen}
+                        />
+
+                         <SelectBox label="Is Callback to Schedule"
+                    options={[
+                        { label: 'Yes', value: 'Yes' },
+                        { label: 'No', value: 'No' }
+                    ]}
+                    value={iscallbackscheduletime}
+                    onChange={(e) => setiscallbackscheduletime(e.target.value)}
+                    isreq={false}
+                    placeholder="Select Is Callback to Schedule"
+                    maxLength={10}
+                    widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
+                    sidebarOpen={sidebarOpen}
+                /> 
+
+                <div
+      style={{
+        display: "block",
+        marginTop: "0.3rem",
+        width: DateInputwidth,
+      }}
+      ref={timeWrapperRef}
+    >
+      <label style={{ fontSize: "0.9rem" }}>
+        <strong>Callback Schedule Time</strong>
+      </label>
+      <br />
+
+      <RangePicker
+        size="middle"
+        format="HH:mm:ss"
+        placeholder={["Start Time", "End Time"]}
+        
+        ref={pickerRef}
+        value={value}
+        onChange={handleChange}
+        onSelect={handleSelect}
+        style={{
+          padding: "0.55rem 1.3rem",
+          margin: "0",
+          marginTop: "0.08rem",
+          border: "1px solid gray",
+          width: "100%",
+        }}
+        getPopupContainer={() => timeWrapperRef.current}
+         disabled={iscallbackscheduletime === "No"}
+      />
+    </div>
+
+
+
+                        <SelectBox label="Is Retry Enabled"
+                    options={[
+                        { label: 'Yes', value: 'Yes' },
+                        { label: 'No', value: 'No' }
+                    ]}
+                    value={isretry}
+                    onChange={(e) => setisretry(e.target.value)}
+                    isreq={false}
+                    placeholder="Select Is Retry To Enable"
+                    maxLength={10}
+                    widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
+                    sidebarOpen={sidebarOpen}
+                /> 
+
+                 <SelectBox label="Number of Retry"
+                    options={[
+                        { label: '1', value: '1' },
+                        { label: '2', value: '2' },
+                          { label: '3', value: '3' },
+                        { label: '4', value: '4' }, 
+                         { label: '5', value: '5' },
+                        { label: '6', value: '6' },
+                    ]}
+                    value={noOfRetry}
+                    onChange={(e) => setnoOfRetry(e.target.value)}
+                    isreq={false}
+                    placeholder="Select Number of Retry"
+                    maxLength={10}
+                    widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
+                    sidebarOpen={sidebarOpen}
+                    disabled={isretry === "No" ? true : false}
+                /> 
+
+               
+
+              
+
+                <InputBox
+                            label="Retry After Seconds"
+                            type="number"
+                            placeholder="Enter Retry After Seconds"
+                            maxLength={4}
+                            isreq={false}
+                            minno="1"
+                            maxno='6000'
+                            widthPercent="23%" widthPercent950="32%" widthPercent900="49%"
+                            value={retryaftersec}
+                            onChange={(e) => setretryaftersec(e.target.value)}
+                            sidebarOpen={sidebarOpen}
+                            disable={isretry === "No" ? true : false}
+                        />
+
+                        <div style={{ width: inputwidth }}></div>
+                        
+                <div style={{ width: inputwidth }}></div>
+                 
 
                         <Textarea
                             label="Whiteliset IPs"
@@ -665,7 +902,7 @@ export default function SMSUserCreation({ accounttype, setaccounttype, sidebarOp
                             maxLength={2000}
                             col='12'
                         />}
-                        </div>
+                    </div>
                 </div>
             </>}
 

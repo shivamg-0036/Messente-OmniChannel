@@ -47,7 +47,7 @@ export default function Sidebar({ isSidebarOpen }) {
                 <li className="li-div" >
                     <div style={{ display: "flex", alignItems: "center", flex: "0 0 100%", maxWidth: "100%" }}>
                         <div className="side-icon-div">
-                            <img src="images/Icon-Images/home (2).png" style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
+                            <img src={`${process.env.PUBLIC_URL}/images/Icon-Images/home (2).png`} style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
                         </div>
                         {isSidebarOpen && (
                             <div className="side-text-div nav-item">
@@ -61,7 +61,7 @@ export default function Sidebar({ isSidebarOpen }) {
                 <li className="li-div" ref={liRefs[0]} >
                     <div style={{ display: "flex", alignItems: "center", flex: "0 0 100%", maxWidth: "100%" }} onClick={() => handleIcon("0")} >
                         <div className="side-icon-div">
-                            <img src="images/Icon-Images/user.png" style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
+                            <img src={`${process.env.PUBLIC_URL}/images/Icon-Images/user.png`} style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
                         </div>
                         {isSidebarOpen && (
                             <div className="side-text-div nav-item sub-div" style={{ position: "relative" }}>
@@ -84,7 +84,7 @@ export default function Sidebar({ isSidebarOpen }) {
                 <li className="li-div">
                     <div style={{ display: "flex", alignItems: "center", flex: "0 0 100%", maxWidth: "100%" }}>
                         <div className="side-icon-div">
-                            <img src="images/Icon-Images/document.png" style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
+                            <img src={`${process.env.PUBLIC_URL}/images/Icon-Images/document.png`} style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
                         </div>
                         {isSidebarOpen && (
                             <div className="side-text-div nav-item">
@@ -97,7 +97,7 @@ export default function Sidebar({ isSidebarOpen }) {
                 <li className="li-div" ref={liRefs[1]}>
                     <div style={{ display: "flex", alignItems: "center", flex: "0 0 100%", maxWidth: "100%" }} onClick={() => handleIcon("1")}>
                         <div className="side-icon-div">
-                            <img src="images/Icon-Images/arrow.png" style={{ width: "2.1rem" }} />
+                            <img src={`${process.env.PUBLIC_URL}/images/Icon-Images/arrow.png`} style={{ width: "2.1rem" }} />
                         </div>
                         {isSidebarOpen && (
                             <div className="side-text-div nav-item sub-div" style={{ marginLeft: "0.8rem" }}>
@@ -119,7 +119,7 @@ export default function Sidebar({ isSidebarOpen }) {
                 <li className="li-div">
                     <div style={{ display: "flex", alignItems: "center", flex: "0 0 100%", maxWidth: "100%" }}>
                         <div className="side-icon-div">
-                            <img src="images/Icon-Images/minimize.png" style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
+                            <img src={`${process.env.PUBLIC_URL}/images/Icon-Images/minimize.png`} style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
                         </div>
                         {isSidebarOpen && (
                             <div className="side-text-div nav-item">
@@ -133,7 +133,7 @@ export default function Sidebar({ isSidebarOpen }) {
                 <li className="li-div" >
                     <div style={{ display: "flex", alignItems: "center", flex: "0 0 100%", maxWidth: "100%" }}>
                         <div className="side-icon-div">
-                            <img src="images/Icon-Images/add-friend.png" style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
+                            <img src={`${process.env.PUBLIC_URL}/images/Icon-Images/add-friend.png`} style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
                         </div>
                         {isSidebarOpen && (
                             <div className="side-text-div nav-item">
@@ -146,7 +146,7 @@ export default function Sidebar({ isSidebarOpen }) {
                 <div className="li-div"   >
                     <Link to="/campaignmgt" style={{ display: "flex", alignItems: "center", flex: "0 0 100%", maxWidth: "100%" }}>
                         <div className="side-icon-div">
-                            <img src="images/Icon-Images/technical-support.png" style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
+                            <img src={`${process.env.PUBLIC_URL}/images/Icon-Images/technical-support.png`} style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
                         </div>
                         {isSidebarOpen && (
                             <div className="side-text-div nav-item">
@@ -158,7 +158,7 @@ export default function Sidebar({ isSidebarOpen }) {
 
                 <li className="li-div">
                     <div style={{ display: "flex", alignItems: "center", flex: "0 0 100%", maxWidth: "100%" }}>                    <div className="side-icon-div">
-                        <img src="images/Icon-Images/user.png" style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
+                        <img src={`${process.env.PUBLIC_URL}/images/Icon-Images/user.png`} style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
                     </div>
                         {isSidebarOpen && (
                             <div className="side-text-div nav-item">
@@ -172,7 +172,7 @@ export default function Sidebar({ isSidebarOpen }) {
                     <Link to="/templatemgt" style={{ display: "flex", alignItems: "center", flex: "0 0 100%", maxWidth: "100%" }}>
                          <div className="side-icon-div">
                         {/* <i class="fa-solid fa-user-tag" style={{ marginLeft: "0.35rem", fontSize:"1.2rem" }}></i> */}
-                        <img src="images/Icon-Images/user (1).png" style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
+                        <img src={`${process.env.PUBLIC_URL}/images/Icon-Images/user (1).png`} style={{ width: "1.5rem", marginLeft: "0.35rem" }} />
                     </div>
                         {isSidebarOpen && (
                             <div className="side-text-div nav-item">

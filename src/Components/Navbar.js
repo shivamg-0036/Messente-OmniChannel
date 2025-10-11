@@ -27,7 +27,7 @@ export default function Navbar({ toggleSidebar }) {
 
                         <li class="nav-item" >
                             <a class="navbar-brand">
-                                <img class="brand-logo img-class" alt="" src='images/Messente.png' />
+                                <img class="brand-logo img-class" alt="" src={`${process.env.PUBLIC_URL}/images/Messente.png`} />
                             </a>
                         </li>
 
@@ -51,7 +51,7 @@ export default function Navbar({ toggleSidebar }) {
                                             <>
                                                 <span className="avatar-online">
                                                     <img
-                                                        src="images/avatar-s-1.png"
+                                                        src={`${process.env.PUBLIC_URL}/images/avatar-s-1.png`}
                                                         alt="avatar"
                                                         style={{ width: '3.2rem', height: '3.2rem', borderRadius: '50%' }}
                                                     />

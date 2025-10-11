@@ -389,14 +389,14 @@ const togglePin = (key) => {
                                             }}
                                         >
                                             <img
-                                                src='images/Icon-Images/filter.png'
+                                                src={`${process.env.PUBLIC_URL}/images/Icon-Images/filter.png`}
                                                 style={{ width: "1rem", marginTop: "-0.1rem" }}
                                                 alt="filter"
                                             />
                                             <i className="fa-solid fa-angle-down" style={{ fontSize: "0.5rem", position: 'absolute', bottom: "0.1rem" }}></i>
 
                                             <img
-                                                src="images/Icon-Images/push-pin (3).png"
+                                                src={`${process.env.PUBLIC_URL}/images/Icon-Images/push-pin (3).png`}
                                                 style={{ width: "0.9rem", marginLeft: "0.9rem" }}
                                                 onClick={(e) => {
                                                     e.stopPropagation(); // Prevent dropdown or sort from toggling
@@ -593,7 +593,7 @@ const togglePin = (key) => {
                     {sortedData.length === 0 ? (
                         <tr>
                             <td colSpan={columns.length} style={{ textAlign: "center", padding: "1rem", fontSize: "0.9rem", fontStyle: "italic" }}>
-                                <img src="images/NoReport.png" style={{ width: "4rem", height: "4rem", marginBottom: '1rem', marginTop: '2rem' }} />
+                                <img src={`images/NoReport.png`} style={{ width: "4rem", height: "4rem", marginBottom: '1rem', marginTop: '2rem' }} />
                                 <br />
                                 No records found ...
                             </td>

@@ -106,15 +106,15 @@ export default function CampaignPage({ sidebarOpen }) {
                     </div>
 
                     <div className='img-div-1' style={{ cursor: "pointer" }} onClick={() => setServiceType("SMS")}>
-                        <img src='images/sms.png' style={{ width: '1.75rem' }} />
+                        <img src={`${process.env.PUBLIC_URL}/images/sms.png`} style={{ width: '1.75rem' }} />
                     </div>
 
                     <div className='img-div-2' style={{ cursor: "pointer" }} onClick={() => setServiceType("RCS")}>
-                        <img src='images/rcslogo1.png' style={{ width: '2.2rem', cursor: "pointer" }} />
+                        <img src={`${process.env.PUBLIC_URL}/images/rcslogo1.png`} style={{ width: '2.2rem', cursor: "pointer" }} />
                     </div>
 
                     <div className='img-div-3' style={{ cursor: "pointer" }} onClick={() => setServiceType("WABA")}>
-                        <img src='images/waba-removebg-preview.png' style={{ width: '2.5rem' }} />
+                        <img src={`${process.env.PUBLIC_URL}/images/waba-removebg-preview.png`} style={{ width: '2.5rem' }} />
                     </div>
 
                     <div className='img-div-4' style={{ cursor: "pointer" }} onClick={() => setServiceType("Voice")}>
@@ -139,15 +139,15 @@ export default function CampaignPage({ sidebarOpen }) {
                     </div>
 
                     <div className='img-div-1' style={{ cursor: "pointer" }} onClick={() => setServiceType("SMS")}>
-                        <img src='images/sms.png' style={{ width: '1.75rem' }} />
+                        <img src={`${process.env.PUBLIC_URL}/images/sms.png`} style={{ width: '1.75rem' }} />
                     </div>
 
                     <div className='img-div-2' style={{ cursor: "pointer" }} onClick={() => setServiceType("RCS")}>
-                        <img src='images/rcslogo1.png' style={{ width: '2.2rem', cursor: "pointer" }} />
+                        <img src={`${process.env.PUBLIC_URL}/images/rcslogo1.png`} style={{ width: '2.2rem', cursor: "pointer" }} />
                     </div>
 
                     <div className='img-div-3' style={{ cursor: "pointer" }} onClick={() => setServiceType("WABA")}>
-                        <img src='images/waba-removebg-preview.png' style={{ width: '2.5rem' }} />
+                        <img src={`${process.env.PUBLIC_URL}/images/waba-removebg-preview.png`} style={{ width: '2.5rem' }} />
                     </div>
 
                     <div className='img-div-4' style={{ cursor: "pointer" }} onClick={() => setServiceType("Voice")}>

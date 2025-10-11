@@ -13,6 +13,8 @@ export default function InputBox({
     widthPercent900 = "",
     value = "",
     onChange = () => { },
+    minno ="0",
+    maxno="999999",
     sidebarOpen = true // 
 }){
 
@@ -59,6 +61,8 @@ export default function InputBox({
                 maxLength={maxLength}
                 value={value}
                 onChange={onChange}
+                min={minno}
+                max={maxno}
                 style={{
                     width: "100%",
                     fontSize: "0.88rem",

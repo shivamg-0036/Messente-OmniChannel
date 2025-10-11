@@ -8,6 +8,7 @@ import RCSUserCreation from "./RCSUserCreation";
 import WABAUserCreation from "./WABAUserCreation";
 import VoiceUserCreation from "./VoiceUserCreation";
 import EmailUserCreation from "./EmailUserCreation";
+import Textarea from "./Form-Elements/Textarea";
 
 export default function User_Creation({ sidebarOpen }) {
     const [usertype, setusertype] = useState("");
@@ -29,16 +30,21 @@ export default function User_Creation({ sidebarOpen }) {
     const [username, setusername] = useState("");
     const [password, setpassword] = useState("");
     const [email, setemail] = useState("");
+    const [is2faenable, setis2faenable] = useState("");
+    const [isguiipcheck, setisguiipcheck] = useState("");
+    const [isspamfilter,setisspamfilter] = useState("");
     const [phonenumber, setphonenumber] = useState("");
     const [userstatus, setuserstatus] = useState("Active");
     const [inputwidth, setInputwidth] = useState("21.5%");
     const [DateInputwidth, setDateInputwidth] = useState("");
     const [reportinputwidth, setreportinputwidth] = useState("");
     const [AssignAccountInputwidth, setAssignAccountInputwidth] = useState("");
-
+    const [guiwhitelisetip,setguiwhitelisetip] = useState("");
+    const [spamfilterkeyword,setspamfilterkeyword] = useState("");
     const [searchETerm, setESearchTerm] = useState("");
     const [EDropdownVisible, setEDropdownVisible] = useState(false);
     const [isESelecting, setisESelecting] = useState(false);
+    const [percentapplicable,setpercentapplicable] = useState("");
 
     const [searchRTerm, setRSearchTerm] = useState("");
     const [RDropdownVisible, setRDropdownVisible] = useState(false);
@@ -258,17 +264,17 @@ export default function User_Creation({ sidebarOpen }) {
             case 'SMS':
                 // Only render SMSUserCreation if accounttype is 'User' or 'Reseller'
                 if (usertype === 'User' || usertype === 'Reseller' || usertype === "Seller") {
-                     return <SMSUserCreation accounttype={accounttype} setaccounttype={setaccounttype} usertype={usertype} sidebarOpen={sidebarOpen} />;
+                    return <SMSUserCreation accounttype={accounttype} setaccounttype={setaccounttype} usertype={usertype} sidebarOpen={sidebarOpen} />;
                 } else {
                     return <div></div>;
                 }
             case 'RCS':
-             return <RCSUserCreation />;
+                return <RCSUserCreation />;
             case 'WABA':
-             return <WABAUserCreation />;
+                return <WABAUserCreation />;
             case 'Voice':
-             return <VoiceUserCreation />;
-             case "Email":
+                return <VoiceUserCreation />;
+            case "Email":
                 return <EmailUserCreation />;
             default:
                 return <div></div>;
@@ -538,7 +544,28 @@ export default function User_Creation({ sidebarOpen }) {
                                         sidebarOpen={sidebarOpen}
                                     />
 
-                                    <InputBox
+                                   
+
+                                    {(usertype !== "accountmanager" && usertype !== "reportuser" )
+                                     ? (
+                                        <SelectBox label="Is 2FA Enabled"
+                                        options={[
+                                            { label: 'Yes', value: 'Yes' },
+                                            { label: 'No', value: 'No' }
+                                        ]}
+                                        value={is2faenable}
+                                        onChange={(e) => setis2faenable(e.target.value)}
+                                        isreq={false}
+                                        placeholder="Select Is 2FA Enabled"
+                                        maxLength={10}
+                                        widthPercent="20%"
+                                        widthPercent950="34%"
+                                        widthPercent900="49%"
+                                        sidebarOpen={sidebarOpen}
+                                    />
+                                     ) : (
+                                    
+                                 <InputBox
                                         label="Password"
                                         type="password"
                                         placeholder="Password"
@@ -550,33 +577,10 @@ export default function User_Creation({ sidebarOpen }) {
                                         value={password}
                                         onChange={(e) => setpassword(e.target.value)}
                                         sidebarOpen={sidebarOpen}
+                                        disable={(usertype === "accountmanager" || usertype === "reportuser" || usertype === "") ? false : true}
                                     />
-
-                                    <InputBox
-                                        label="Phone Number"
-                                        type="text"
-                                        placeholder="Phone Number"
-                                        maxLength={31}
-                                        isreq={false}
-                                        widthPercent="20%"
-                                        widthPercent950="30%" widthPercent900="49%"
-                                        value={phonenumber}
-                                        onChange={(e) => setphonenumber(e.target.value)}
-                                        sidebarOpen={sidebarOpen}
-                                    />
-
-                                    <InputBox
-                                        label="Email ID"
-                                        type="text"
-                                        placeholder="Email ID"
-                                        maxLength={150}
-                                        isreq={false}
-                                        widthPercent="33.2%"
-                                        widthPercent950="34%" widthPercent900="49%"
-                                        value={email}
-                                        onChange={(e) => setemail(e.target.value)}
-                                        sidebarOpen={sidebarOpen}
-                                    />
+                                ) 
+                                    }
 
                                     <SelectBox
                                         label="Status"
@@ -594,6 +598,27 @@ export default function User_Creation({ sidebarOpen }) {
                                         widthPercent900="49%"
                                         sidebarOpen={sidebarOpen}
                                     />
+
+
+
+
+
+                                    <InputBox
+                                        label="Email ID"
+                                        type="text"
+                                        placeholder="Email ID"
+                                        maxLength={150}
+                                        isreq={false}
+                                        widthPercent="33.2%"
+                                        widthPercent950="34%" widthPercent900="49%"
+                                        value={email}
+                                        onChange={(e) => setemail(e.target.value)}
+                                        sidebarOpen={sidebarOpen}
+                                    />
+
+
+
+
 
                                     <div style={{
                                         display: "block",
@@ -615,7 +640,69 @@ export default function User_Creation({ sidebarOpen }) {
                                         />
                                     </div>
 
-                                    {(usertype === "accountmanager") &&
+                                    {(usertype !== "accountmanager" && usertype !== "reportuser" )
+                                    &&
+                                    <SelectBox label="Is GUI IP to Check"
+                                        options={[
+                                            { label: 'Yes', value: 'Yes' },
+                                            { label: 'No', value: 'No' }
+                                        ]}
+                                        value={isguiipcheck}
+                                        onChange={(e) => setisguiipcheck(e.target.value)}
+                                        isreq={false}
+                                        placeholder="Select Is GUI IP to Check"
+                                        maxLength={10}
+                                        widthPercent="20%"
+                                        widthPercent950="30%"
+                                        widthPercent900="49%"
+                                        sidebarOpen={sidebarOpen}
+                                    />}
+
+                                    {(usertype !== "accountmanager" && usertype !== "reportuser" )
+                                    &&
+                                     <SelectBox label="Is Percentage Apply"
+                                        options={[
+                                            { label: 'Yes', value: 'Yes' },
+                                            { label: 'No', value: 'No' }
+                                        ]}
+                                        value={percentapplicable}
+                                        onChange={(e) => setpercentapplicable(e.target.value)}
+                                        isreq={false}
+                                        placeholder="Select Is Percent Applicable"
+                                        maxLength={10}
+                                        widthPercent="20%"
+                                        widthPercent950="30%"
+                                        widthPercent900="49%"
+                                        sidebarOpen={sidebarOpen}
+                                    />}
+                                    
+
+
+                                    <InputBox
+                                        label="Phone Number"
+                                        type="text"
+                                        placeholder="Phone Number"
+                                        maxLength={31}
+                                        isreq={false}
+
+                                        widthPercent={(usertype === "accountmanager" || usertype === "reportuser") 
+                                            ? "20%" : "33.2%"
+                                        } 
+                                        widthPercent950=
+                                        {(usertype === "accountmanager" || usertype === "reportuser") 
+                                            ? "30%" : "63%"
+                                        } 
+                                       widthPercent900=
+                                       {(usertype === "accountmanager" || usertype === "reportuser") 
+                                            ? "49%" : "49%"
+                                        } 
+                                       
+                                        value={phonenumber}
+                                        onChange={(e) => setphonenumber(e.target.value)}
+                                        sidebarOpen={sidebarOpen}
+                                    />
+
+                                      {(usertype === "accountmanager") &&
                                         <div style={{ display: "block", marginTop: "0.25rem", minWidth: AssignAccountInputwidth, width: "auto" }}>
                                             <label style={{ fontSize: "0.9rem" }}>
                                                 <strong>Assign Accounts</strong>
@@ -692,6 +779,68 @@ export default function User_Creation({ sidebarOpen }) {
                                         </div>
                                     }
 
+                                    
+
+                                    {(usertype !== "accountmanager" && usertype !== "reportuser" )
+                                    &&
+                                     <SelectBox label="Is SPAM Filteration"
+                                        options={[
+                                            { label: 'Yes', value: 'Yes' },
+                                            { label: 'No', value: 'No' }
+                                        ]}
+                                        value={isspamfilter}
+                                        onChange={(e) => setisspamfilter(e.target.value)}
+                                        isreq={false}
+                                        placeholder="Select Is SPAM Filter Enabled"
+                                        maxLength={10}
+                                        widthPercent="20%"
+                                        widthPercent950="30%"
+                                        widthPercent900="49%"
+                                        sidebarOpen={sidebarOpen}
+                                    />
+}
+
+                                    <div style={{width:"20%"}}></div>
+
+                                     {isguiipcheck === "Yes" && (usertype !== "accountmanager" && usertype !== "reportuser" ) &&  (
+                                         <Textarea
+                                                                label="Whiteliset IPs"
+                                                                placeholder="Whitelist IPs"
+                                                                value={guiwhitelisetip}
+                                                                onChange={(e) => setguiwhitelisetip(e.target.value)}
+                                                                maxLength={2000}
+                                                                rows='1'
+                                                                inwidth = "101%"
+                                                               
+                                    
+                                                            />
+                                    )}
+
+                                    {isspamfilter === "Yes" && (usertype !== "accountmanager" && usertype !== "reportuser" ) &&  (
+                                         <Textarea
+                                                                label="SPAM Filter Keywords"
+                                                                placeholder="SPAM Filter Keywords"
+                                                                value={spamfilterkeyword}
+                                                                onChange={(e) => setspamfilterkeyword(e.target.value)}
+                                                                maxLength={2000}
+                                                                rows='1'
+                                                                inwidth = "101%"
+                                                               
+                                    
+                                                            />
+                                    )}
+
+                                    
+                                   
+
+
+
+                                    
+
+                                   
+
+                                  
+
 
 
 
@@ -711,12 +860,12 @@ export default function User_Creation({ sidebarOpen }) {
                                 {usertype === "reportuser" && (
                                     <>
                                         <div className='row'  >
-                                            <div className="card-header" style={{ borderTop: "1px solid rgba(0, 0, 0, .06)", backgroundColor: "#3BAFDA", width: "100%", marginBottom:"0.6rem" }}>
+                                            <div className="card-header" style={{ borderTop: "1px solid rgba(0, 0, 0, .06)", backgroundColor: "#3BAFDA", width: "100%", marginBottom: "0.6rem" }}>
                                                 <h6 className="card-title" style={{ fontWeight: "600" }}>Assign Accounts</h6>
                                             </div>
                                         </div>
 
-                                        <div className='row mb-1 px-2' 
+                                        <div className='row mb-1 px-2'
                                             style={{
                                                 display: "flex",
                                                 flexWrap: "wrap",
@@ -792,7 +941,7 @@ export default function User_Creation({ sidebarOpen }) {
                                                 )}
                                             </div>
 
-                                            <div style={{ position: "relative", width: reportinputwidth, marginTop: reportinputwidth === "100%" ?  "1rem"  : "0.4rem"}}>
+                                            <div style={{ position: "relative", width: reportinputwidth, marginTop: reportinputwidth === "100%" ? "1rem" : "0.4rem" }}>
                                                 <strong> <label style={{ fontSize: "0.9rem" }}>Select Re-Seller</label></strong>
                                                 <input
                                                     type="text"
@@ -857,8 +1006,8 @@ export default function User_Creation({ sidebarOpen }) {
                                                 )}
                                             </div>
 
-                                            <div style={{ position: "relative", width: reportinputwidth, marginTop: reportinputwidth === "100%" ?  "1rem"  : "0.4rem" }}>
-                                                <strong> <label style={{fontSize:"0.9rem"}}>Select Seller</label></strong>
+                                            <div style={{ position: "relative", width: reportinputwidth, marginTop: reportinputwidth === "100%" ? "1rem" : "0.4rem" }}>
+                                                <strong> <label style={{ fontSize: "0.9rem" }}>Select Seller</label></strong>
                                                 <input
                                                     type="text"
                                                     className="form-control"
@@ -924,8 +1073,8 @@ export default function User_Creation({ sidebarOpen }) {
                                             </div>
 
                                             <div style={{ position: "relative", minWidth: reportinputwidth, marginTop: "1.2rem", width: "auto", maxWidth: "98%" }}>
-                                                 <strong> <label style={{fontSize:"0.9rem"}}>Select Assign Accounts</label></strong>
-                                                  <div className="multi-select-dropdown-accounts" ref={dropdownRefAssignRU}>
+                                                <strong> <label style={{ fontSize: "0.9rem" }}>Select Assign Accounts</label></strong>
+                                                <div className="multi-select-dropdown-accounts" ref={dropdownRefAssignRU}>
                                                     <div className="dropdown-header" onClick={() => setisUserAccOpen(!isUserAccOpen)}>
                                                         {UserAccselectedOptions.length > 0 ? (
                                                             <div className="selected-tags" onClick={e => e.stopPropagation()}>
@@ -1003,24 +1152,24 @@ export default function User_Creation({ sidebarOpen }) {
                 textAlign: "right",
                 paddingRight: "0.8rem",
                 zIndex: 10,
-                
-                 marginTop: (usertype === 'Reseller' || usertype === 'User' || usertype=== "Seller") ? '0.4rem' : '0',
+
+                marginTop: (usertype === 'Reseller' || usertype === 'User' || usertype === "Seller") ? '0.4rem' : '0',
             }}>
                 {currentIndex < selectedOptions.length - 1 ? (
                     <button className="btn btn-info  btn-glow mr-1 " type="button" onClick={goToNext}  >
                         Next
-                        <i class="fa-solid fa-share-from-square" style={{marginLeft:"0.5rem"}}></i>
+                        <i class="fa-solid fa-share-from-square" style={{ marginLeft: "0.5rem" }}></i>
                     </button>
                 ) : (
                     <button className="btn btn-info  btn-glow mr-1 " type="button" >
-                        Submit <i class="fa-solid fa-paper-plane" style={{marginLeft:"0.1rem"}}></i>
+                        Submit <i class="fa-solid fa-paper-plane" style={{ marginLeft: "0.1rem" }}></i>
                     </button>
                 )}
 
 
                 {selectedOptions.length > 1 && currentIndex !== 0 && <button className="btn btn-warning btn-glow box-shadow-4 mr-1" type="button" onClick={goToPrevious}  >
                     Back
-                    <i class="fa-solid fa-reply-all" style={{marginLeft:"0.5rem"}}></i>
+                    <i class="fa-solid fa-reply-all" style={{ marginLeft: "0.5rem" }}></i>
                 </button>}
             </div>
         </div>
